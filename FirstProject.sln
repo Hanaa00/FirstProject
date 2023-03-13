@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstProject", "FirstProject\FirstProject.csproj", "{34E191F8-8F4E-42E2-8F61-60267666BA28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLParse", "XMLParse\XMLParse.csproj", "{7BA8B947-F265-4152-B202-8F8047C1D681}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{34E191F8-8F4E-42E2-8F61-60267666BA28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34E191F8-8F4E-42E2-8F61-60267666BA28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34E191F8-8F4E-42E2-8F61-60267666BA28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BA8B947-F265-4152-B202-8F8047C1D681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BA8B947-F265-4152-B202-8F8047C1D681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BA8B947-F265-4152-B202-8F8047C1D681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BA8B947-F265-4152-B202-8F8047C1D681}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

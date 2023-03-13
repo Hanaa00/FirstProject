@@ -45,8 +45,9 @@
             // fileContentTextBox
             // 
             this.fileContentTextBox.Location = new System.Drawing.Point(39, 91);
+            this.fileContentTextBox.Multiline = true;
             this.fileContentTextBox.Name = "fileContentTextBox";
-            this.fileContentTextBox.Size = new System.Drawing.Size(180, 27);
+            this.fileContentTextBox.Size = new System.Drawing.Size(403, 315);
             this.fileContentTextBox.TabIndex = 1;
             // 
             // Form1
