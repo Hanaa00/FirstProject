@@ -34,7 +34,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(39, 27);
+            this.button1.Location = new System.Drawing.Point(3, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 29);
             this.button1.TabIndex = 0;
@@ -44,10 +44,10 @@
             // 
             // fileContentTextBox
             // 
-            this.fileContentTextBox.Location = new System.Drawing.Point(39, 91);
+            this.fileContentTextBox.Location = new System.Drawing.Point(43, 47);
             this.fileContentTextBox.Multiline = true;
             this.fileContentTextBox.Name = "fileContentTextBox";
-            this.fileContentTextBox.Size = new System.Drawing.Size(403, 315);
+            this.fileContentTextBox.Size = new System.Drawing.Size(403, 391);
             this.fileContentTextBox.TabIndex = 1;
             // 
             // Form1

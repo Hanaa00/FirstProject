@@ -1,5 +1,6 @@
 using System.IO;
 using System.Xml.Serialization;
+using XMLparse;
 using XMLParse;
 
 namespace FirstProject
@@ -13,49 +14,25 @@ namespace FirstProject
 
         private void button_click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "XML Files (*.xml)|*.xml";
-            openFileDialog.FilterIndex = 1;
-            DialogResult result = openFileDialog.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                string fileName = openFileDialog.FileName;
-
-            
-                XmlSerializer deviceSerializer = new XmlSerializer(typeof(Device));
-
-               
-                using (FileStream fileStream = new FileStream(fileName, FileMode.Open))
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "JSON Files (*.json)|*.json|XML Files (*.xml)|*.xml";
+                if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    Device device = (Device)deviceSerializer.Deserialize(fileStream);
-
-                    
-                    fileContentTextBox.Text = $"Device Name: {device.DeviceName}\r\n";
-                    fileContentTextBox.AppendText($"Manufacturer: {device.Manufacturer}\r\n");
-                    fileContentTextBox.AppendText($"Part Number: {device.PartNumber}\r\n");
-                    fileContentTextBox.AppendText($"Serial Number: {device.SerialNumber}\r\n");
-                    fileContentTextBox.AppendText($"Product Name: {device.ProductName}\r\n");
-                    fileContentTextBox.AppendText($"Vendor Part Number: {device.VendorPartNumber}\r\n");
-                    fileContentTextBox.AppendText($"Vendor Serial Number: {device.VendorSerialNumber}\r\n");
-                    fileContentTextBox.AppendText($"License ID: {device.LicenseId}\r\n");
-                    fileContentTextBox.AppendText($"Chassis WWN: {device.ChassisWwn}\r\n");
-
-                    
-                    foreach (Port port in device.Ports)
+                    string extension = Path.GetExtension(ofd.FileName);
+                    if (extension == ".json")
                     {
-                        fileContentTextBox.AppendText("\r\n");
-                        fileContentTextBox.AppendText($"WWPN: {port.Wwpn}\r\n");
-                        fileContentTextBox.AppendText($"WWNN: {port.Wwnn}\r\n");
-                        fileContentTextBox.AppendText($"Domain ID: {port.DomainId}\r\n");
-                        fileContentTextBox.AppendText($"FCID: {port.Fcid}\r\n");
-                        fileContentTextBox.AppendText($"Firmware Version: {port.FirmwareVersion}\r\n");
-                        fileContentTextBox.AppendText($"Serial Number: {port.SerialNumber}\r\n");
-                        fileContentTextBox.AppendText($"Port Name: {port.PortName}\r\n");
-                        fileContentTextBox.AppendText($"Port Number: {port.PortNumber}\r\n");
+                        fileContentTextBox.Text = ParseJSONfile.ParseDevice(ofd.FileName);
+                    }
+                    else if (extension == ".xml")
+                    {
+                        fileContentTextBox.Text = ParseXMLfile.ParseXmlFile(ofd.FileName);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid file type. Please select a JSON or XML file.");
                     }
                 }
             }
         }
     }
-}
+

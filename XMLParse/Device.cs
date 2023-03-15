@@ -1,38 +1,57 @@
-﻿using System.Xml.Serialization;
+﻿using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace XMLParse
 {
     [XmlRoot(ElementName = "root")]
     public class Device
     {
+            [JsonProperty("deviceName")]
             [XmlElement(ElementName = "deviceName")]
             public string DeviceName { get; set; }
 
+
+            [JsonProperty("manufacturer")]
             [XmlElement(ElementName = "manufacturer")]
             public string Manufacturer { get; set; }
 
+
+            [JsonProperty("part-number")]
             [XmlElement(ElementName = "part-number")]
             public string PartNumber { get; set; }
 
-            [XmlElement(ElementName = "serial-number")]
+
+           [JsonProperty("serial-number")]
+           [XmlElement(ElementName = "serial-number")]
             public string SerialNumber { get; set; }
 
-            [XmlElement(ElementName = "product-name")]
+
+           [JsonProperty("product-name")]
+           [XmlElement(ElementName = "product-name")]
             public string ProductName { get; set; }
 
-            [XmlElement(ElementName = "vendor-part-number")]
+
+          [JsonProperty("vendor-part-number")]
+          [XmlElement(ElementName = "vendor-part-number")]
             public string VendorPartNumber { get; set; }
 
-            [XmlElement(ElementName = "vendor-serial-number")]
+
+          [JsonProperty("vendor-serial-number")]
+          [XmlElement(ElementName = "vendor-serial-number")]
             public string VendorSerialNumber { get; set; }
 
-            [XmlElement(ElementName = "license-id")]
+
+          [JsonProperty("license-id")]
+          [XmlElement(ElementName = "license-id")]
             public string LicenseId { get; set; }
 
-            [XmlElement(ElementName = "chassis-wwn")]
+
+          [JsonProperty("chassis-wwn")]
+          [XmlElement(ElementName = "chassis-wwn")]
             public string ChassisWwn { get; set; }
 
-            [XmlElement(ElementName = "collectorDate")]
+          [JsonProperty("collectorDate")]
+          [XmlElement(ElementName = "collectorDate")]
             public string CollectorDate { get; set; }
 
             [XmlElement(ElementName = "ports")]
