@@ -30,6 +30,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.fileContentTextBox = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -50,11 +51,21 @@
             this.fileContentTextBox.Size = new System.Drawing.Size(403, 391);
             this.fileContentTextBox.TabIndex = 1;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(646, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(142, 29);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Upload HTML file";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.fileContentTextBox);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
@@ -68,5 +79,6 @@
 
         private Button button1;
         private TextBox fileContentTextBox;
+        private Button button2;
     }
 }
