@@ -15,7 +15,7 @@ namespace FirstProject
         private void button_click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "JSON Files (*.json)|*.json|XML Files (*.xml)|*.xml|HTML Files (*.html;*.htm)|*.html;*.htm";
+            ofd.Filter = "JSON Files (*.json)|*.json|XML Files (*.xml)|*.xml|HTML Files (*.html;*.htm)|*.html;*.htm|Text Files (*.txt)|*.txt";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string extension = Path.GetExtension(ofd.FileName);
@@ -31,14 +31,18 @@ namespace FirstProject
                 {
                     fileContentTextBox.Text = ParseHTMLFile.Parse(ofd.FileName);
                 }
+                else if (extension == ".txt") 
+                {
+                    fileContentTextBox.Text = XMLParse.ParseTXTfile.Parse(ofd.FileName);  
+                }
                 else
                 {
-                    MessageBox.Show("Invalid file type. Please select a JSON, XML, or HTML file.");
+                    MessageBox.Show("Invalid file type. Please select a JSON, XML,HTML or TEXT file.");
                 }
             }
         }
     }
-}
+    }
         
     
 
