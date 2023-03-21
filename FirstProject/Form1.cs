@@ -8,6 +8,7 @@ namespace FirstProject
 {
     public partial class Form1 : Form
     {
+        private string loadedFile;
         public Form1()
         {
             InitializeComponent();
@@ -19,32 +20,42 @@ namespace FirstProject
             ofd.Filter = "JSON Files (*.json)|*.json|XML Files (*.xml)|*.xml|HTML Files (*.html;*.htm)|*.html;*.htm|Text Files (*.txt)|*.txt|CSV Files (*.csv)|*.csv";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                string extension = Path.GetExtension(ofd.FileName);
-                if (extension == ".json")
+                loadedFile=ofd.FileName;
+                MessageBox.Show("File loaded successfully!");
+
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (loadedFile != null)
+            {
+                if (Path.GetExtension(loadedFile) == ".xml")
                 {
-                    fileContentTextBox.Text = ParseJSONfile.ParseDevice(ofd.FileName);
+                    fileContentTextBox.Text=ParseXMLfile.ParseXmlFile(loadedFile);
                 }
-                else if (extension == ".xml")
+                else if (Path.GetExtension(loadedFile) == ".json")
                 {
-                    fileContentTextBox.Text = ParseXMLfile.ParseXmlFile(ofd.FileName);
+                    fileContentTextBox.Text = ParseJSONfile.ParseDevice(loadedFile);
                 }
-                else if (extension == ".html" || extension == ".htm")
+                else if (Path.GetExtension(loadedFile) == ".html")
                 {
-                    fileContentTextBox.Text = ParseHTMLFile.Parse(ofd.FileName);
+                    fileContentTextBox.Text = ParseHTMLFile.Parse(loadedFile);
                 }
-                else if (extension == ".txt")
+                else if (Path.GetExtension(loadedFile) == ".txt")
                 {
-                    fileContentTextBox.Text = XMLParse.ParseTXTfile.Parse(ofd.FileName);
+                    fileContentTextBox.Text = ParseTXTfile.Parse(loadedFile);
                 }
-                else if (extension == ".csv")
+                else if (Path.GetExtension(loadedFile) == ".csv")
                 {
-                   fileContentTextBox.Text=ParseCSVfile.Parse(ofd.FileName);
-                }
-                else
-                {
-                    MessageBox.Show("Invalid file type. Please select a JSON, XML,HTML or TEXT file.");
+                    fileContentTextBox.Text = ParseCSVfile.Parse(loadedFile);
                 }
             }
+            else
+            {
+                MessageBox.Show("Please load a file first!");
+            }
+
         }
     }
 }
