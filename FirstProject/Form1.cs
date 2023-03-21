@@ -1,4 +1,5 @@
 using System.IO;
+using System.Text;
 using System.Xml.Serialization;
 using XMLparse;
 using XMLParse;
@@ -15,7 +16,7 @@ namespace FirstProject
         private void button_click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "JSON Files (*.json)|*.json|XML Files (*.xml)|*.xml|HTML Files (*.html;*.htm)|*.html;*.htm|Text Files (*.txt)|*.txt";
+            ofd.Filter = "JSON Files (*.json)|*.json|XML Files (*.xml)|*.xml|HTML Files (*.html;*.htm)|*.html;*.htm|Text Files (*.txt)|*.txt|CSV Files (*.csv)|*.csv";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string extension = Path.GetExtension(ofd.FileName);
@@ -31,9 +32,13 @@ namespace FirstProject
                 {
                     fileContentTextBox.Text = ParseHTMLFile.Parse(ofd.FileName);
                 }
-                else if (extension == ".txt") 
+                else if (extension == ".txt")
                 {
-                    fileContentTextBox.Text = XMLParse.ParseTXTfile.Parse(ofd.FileName);  
+                    fileContentTextBox.Text = XMLParse.ParseTXTfile.Parse(ofd.FileName);
+                }
+                else if (extension == ".csv")
+                {
+                   fileContentTextBox.Text=ParseCSVfile.Parse(ofd.FileName);
                 }
                 else
                 {
@@ -42,7 +47,7 @@ namespace FirstProject
             }
         }
     }
-    }
+}
         
     
 
