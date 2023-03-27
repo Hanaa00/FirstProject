@@ -10,19 +10,24 @@ namespace XMLParse
 {
     public class ParseXMLfile
     {
+
+        public static Device ParseDevice (string path)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Device));
+            Device? device;
+
+            using (StreamReader reader = new StreamReader(path))
+            {
+                device = serializer.Deserialize(reader) as Device;
+            }
+            return device;
+
+        }
+
         public static string ParseXmlFile(string filePath)
         {
-            try
-            {
-                
-                XmlSerializer serializer = new XmlSerializer(typeof(Device));
-                Device device;
-
-                using (StreamReader reader = new StreamReader(filePath))
-                {
-                    device = (Device)serializer.Deserialize(reader);
-                }
-
+           
+               var device=ParseDevice(filePath);
                 
                 string parsedData = $"Device Name: {device.DeviceName}\r\n" +
                                     $"Manufacturer: {device.Manufacturer}\r\n" +
@@ -49,12 +54,9 @@ namespace XMLParse
                 }
 
                 return parsedData;
-            }
-            catch (Exception ex)
-            {
-                return $"Error: {ex.Message}";
-            }
         }
-
+            
     }
+
 }
+
