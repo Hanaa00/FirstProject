@@ -8,7 +8,7 @@ namespace XMLParse
     {
         public Device()
         {
-            Ports = new List<Port>(); // Or whatever type the Ports property is.
+            Ports = new List<Port>();
         }
 
         [JsonProperty("deviceName")]
