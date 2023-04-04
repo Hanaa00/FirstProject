@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 using XMLparse;
 using XMLParse;
 
+
 namespace FirstProject
 {
     public partial class Form1 : Form
@@ -78,11 +79,11 @@ namespace FirstProject
 
             var templatePath = Path.Combine(Application.StartupPath,"Template.xlsx");
 
-            if (!File.Exists(templatePath))
-            {
-                MessageBox.Show("Excel template not found.");
-                return;
-            }
+            //if (!File.Exists(templatePath))
+            //{
+            //    MessageBox.Show("Excel template not found.");
+            //    return;
+            //}
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
            
@@ -149,6 +150,35 @@ namespace FirstProject
             }
 
           
+        }
+
+       
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            fileContentTextBox.Clear();
+        }
+
+
+
+        private void toolStripMenu_exit_Click(object sender, EventArgs e)
+        {
+           Application.Exit();
+        }
+
+        private void toolStripMenu_about_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Parsing app is an application whose main task is parsing files with following extensions: " +
+                "JSON, XML, HTML, TXT, CSV ." +
+                "Button \"Upload\" loads the desired file." +
+                "Button \"Parse file\" parses the loaded file." +
+                "Button \"Export to Excel\" exports the parsed file to Excel.");
+        }
+
+        private void GetInputOnline_Click(object sender, EventArgs e)
+        {
+            Form getInputOnlineform = new Form2();
+            getInputOnlineform.Show();
         }
     }
 }
